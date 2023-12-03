@@ -35,7 +35,7 @@ INCS		+= $(addprefix $(LIB_DIR)/,$(LIB_INCS))
 # **************************************************************************** #
 
 CXX			:= g++
-CXXFLAGS	:= -Wall -Wextra -Werror -O3
+CXXFLAGS	:=  -O3 #-Wall -Wextra -Werror
 CPPFLAGS	:= $(addprefix -I,$(INCS)) -MMD -MP
 LDFLAGS		:= $(addprefix -L,$(dir $(LIB_TARGETS)))
 LDLIBS		:= $(addprefix -l,$(LIBS))

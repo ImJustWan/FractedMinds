@@ -3,14 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vchakhno <vchakhno@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tgibier <tgibier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 21:02:15 by vchakhno          #+#    #+#             */
-/*   Updated: 2023/12/02 22:08:04 by vchakhno         ###   ########.fr       */
+/*   Updated: 2023/12/03 11:03:05 by tgibier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.hpp"
+#include <iostream>
+#include <complex>
+#include <SDL.h>
 
 int	main() {
 	int width = 800, height = 800;
@@ -24,18 +27,17 @@ int	main() {
 	SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, 0);
 
 	int	max_iter = 100;
-	float min_re = -2, max_re = 2;
-	float min_im = -2, max_im = 2;
+	float min_re = -2.0;
+	float max_re = 2.0;
+	float min_im = -2.0;
+	float max_im = 2.0;
 
-	std::complex c (-0.8f, 0.2f);
+	std::complex c(-0.8f, 0.2f);
 	for (int i = 0; i < height; i++)
 	{
 		for (int j = 0; j < width; j++)
 		{
-			std::complex z (
-				min_re + j * (max_re - min_re) / width,
-				min_im + i * (max_im - min_im) / height
-			);
+			std::complex z( min_re + j * (max_re - min_re) / width, min_im + i * (max_im - min_im) / height);
 			
 			for (int step = 0; step < max_iter; step++)
 			{
